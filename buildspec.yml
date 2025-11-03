@@ -1,0 +1,13 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 22
+  build:
+    commands:
+      - npm install
+cache:
+  key: npm-$(codebuild-hash-files package-lock.json)
+  paths:
+    - "node_modules/**/*"
