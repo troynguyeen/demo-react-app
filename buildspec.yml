@@ -6,7 +6,9 @@ phases:
       nodejs: 22
   build:
     commands:
-      - curl https://demo-caching.s3.ap-southeast-1.amazonaws.com/npm-cache/53c51153-28ef-4168-8c30-f68fd68fad2e/cfd480081b05b236f4092cac6130db6c/npm3-6e24144fd20b97f5b27e301c002229cb55273c7ae59f9228692eea541c460103
+      - curl https://demo-caching.s3.ap-southeast-1.amazonaws.com/npm-cache/53c51153-28ef-4168-8c30-f68fd68fad2e/cfd480081b05b236f4092cac6130db6c/npm3-6e24144fd20b97f5b27e301c002229cb55273c7ae59f9228692eea541c460103 -v
+      - echo "========================================================================================================================"
+      - curl https://s3.amazonaws.com/demo-caching/npm-cache/53c51153-28ef-4168-8c30-f68fd68fad2e/cfd480081b05b236f4092cac6130db6c/npm3-6e24144fd20b97f5b27e301c002229cb55273c7ae59f9228692eea541c460103 -v
       - ls
       - npm install --verbose
 cache:
