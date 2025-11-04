@@ -8,6 +8,6 @@ phases:
     commands:
       - npm install --verbose
 cache:
-  key: npm2-$(codebuild-hash-files package-lock.json)
+  key: npm3-$(codebuild-hash-files package-lock.json)
   paths:
     - "node_modules/**/*"
