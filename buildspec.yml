@@ -6,8 +6,7 @@ phases:
       nodejs: 22
   build:
     commands:
-      - apt update
-      - npm install
+      - npm install --verbose
 cache:
   key: npm-$(codebuild-hash-files package-lock.json)
   paths:
