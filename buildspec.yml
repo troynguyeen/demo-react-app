@@ -6,9 +6,6 @@ phases:
       nodejs: 22
   build:
     commands:
-      - curl -I https://demo-caching.s3.ap-southeast-1.amazonaws.com/Jenkins_logo.svg.png
-      - curl https://demo-caching.s3.ap-southeast-1.amazonaws.com/Jenkins_logo.svg.png -o Jenkins_logo.svg.png
-      - ls
       - npm install --verbose
 cache:
   key: npm-$(codebuild-hash-files package-lock.json)
