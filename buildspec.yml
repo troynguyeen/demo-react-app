@@ -7,7 +7,7 @@ phases:
   build:
     commands:
       # Fix timeout issue when fetch APT packages Ubuntu by replacing HTTP to HTTPS
-      - local APT_SOURCE="/etc/apt/sources.list"
+      - export APT_SOURCE="/etc/apt/sources.list"
       - sudo sed -i 's|http://archive.ubuntu.com|https://archive.ubuntu.com|g' $APT_SOURCE
       - sudo sed -i 's|http://security.ubuntu.com|https://security.ubuntu.com|g' $APT_SOURCE
       - apt install traceroute
