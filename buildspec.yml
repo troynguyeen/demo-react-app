@@ -6,6 +6,10 @@ phases:
       nodejs: 22
   build:
     commands:
+      # Fix timeout issue when fetch APT packages Ubuntu by replacing HTTP to HTTPS
+      - local APT_SOURCE="/etc/apt/sources.list"
+      - sudo sed -i 's|http://archive.ubuntu.com|https://archive.ubuntu.com|g' $APT_SOURCE
+      - sudo sed -i 's|http://security.ubuntu.com|https://security.ubuntu.com|g' $APT_SOURCE
       - apt install traceroute
       - traceroute demo-caching.s3.ap-southeast-1.amazonaws.com
       - nslookup demo-caching.s3.ap-southeast-1.amazonaws.com
