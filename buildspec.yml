@@ -6,6 +6,9 @@ phases:
       nodejs: 22
   build:
     commands:
+      - apt install traceroute
+      - traceroute demo-caching.s3.ap-southeast-1.amazonaws.com
+      - nslookup demo-caching.s3.ap-southeast-1.amazonaws.com
       - npm install --verbose
 cache:
   key: npm-$(codebuild-hash-files package-lock.json)
