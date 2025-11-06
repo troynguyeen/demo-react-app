@@ -8,6 +8,9 @@ phases:
     commands:
       - echo "No internet !"
       - nslookup demo-caching.s3.ap-southeast-1.amazonaws.com
+      - nslookup google.com
+      - curl ifconfig.me
+      - apt update
       # Fix timeout issue when fetch APT packages Ubuntu by replacing HTTP to HTTPS
       # - export APT_SOURCE="/etc/apt/sources.list"
       # - sudo sed -i 's|http://archive.ubuntu.com|https://archive.ubuntu.com|g' $APT_SOURCE
