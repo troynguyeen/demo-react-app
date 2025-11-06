@@ -6,14 +6,15 @@ phases:
   #     nodejs: 22
   build:
     commands:
+      - echo "No internet !"
       - nslookup demo-caching.s3.ap-southeast-1.amazonaws.com
       # Fix timeout issue when fetch APT packages Ubuntu by replacing HTTP to HTTPS
-      - export APT_SOURCE="/etc/apt/sources.list"
-      - sudo sed -i 's|http://archive.ubuntu.com|https://archive.ubuntu.com|g' $APT_SOURCE
-      - sudo sed -i 's|http://security.ubuntu.com|https://security.ubuntu.com|g' $APT_SOURCE
-      - apt install traceroute
-      - traceroute demo-caching.s3.ap-southeast-1.amazonaws.com
-      - npm install --verbose
+      # - export APT_SOURCE="/etc/apt/sources.list"
+      # - sudo sed -i 's|http://archive.ubuntu.com|https://archive.ubuntu.com|g' $APT_SOURCE
+      # - sudo sed -i 's|http://security.ubuntu.com|https://security.ubuntu.com|g' $APT_SOURCE
+      # - apt install traceroute
+      # - traceroute demo-caching.s3.ap-southeast-1.amazonaws.com
+      # - npm install --verbose
 cache:
   key: npm-$(codebuild-hash-files package-lock.json)
   paths:
