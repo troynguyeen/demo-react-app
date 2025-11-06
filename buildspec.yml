@@ -7,9 +7,9 @@ phases:
   build:
     commands:
       - echo "No internet !"
-      - nslookup demo-caching.s3.ap-southeast-1.amazonaws.com
+      - nslookup amazonaws.com
       - nslookup google.com
-      - curl ifconfig.me
+      - ifconfig -a
       - apt update
       # Fix timeout issue when fetch APT packages Ubuntu by replacing HTTP to HTTPS
       # - export APT_SOURCE="/etc/apt/sources.list"
