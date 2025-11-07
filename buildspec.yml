@@ -4,7 +4,7 @@ phases:
   install:
     runtime-versions:
       nodejs: 22
-  pre-build:
+  pre_build:
     commands:
       - echo "Login to CodeArtifact..."
       - aws codeartifact login --tool npm --repository npm-repo --domain demo-artifact --domain-owner 381492178574 --region ap-southeast-1
