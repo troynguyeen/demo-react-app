@@ -1,23 +1,19 @@
 version: 0.2
 
 phases:
-  # install:
-  #   runtime-versions:
-  #     nodejs: 22
+  install:
+    runtime-versions:
+      nodejs: 22
   build:
     commands:
-      - echo "No internet !"
-      - nslookup amazonaws.com
-      - nslookup google.com
-      - ifconfig -a
-      - apt update
       # Fix timeout issue when fetch APT packages Ubuntu by replacing HTTP to HTTPS
-      # - export APT_SOURCE="/etc/apt/sources.list"
-      # - sudo sed -i 's|http://archive.ubuntu.com|https://archive.ubuntu.com|g' $APT_SOURCE
-      # - sudo sed -i 's|http://security.ubuntu.com|https://security.ubuntu.com|g' $APT_SOURCE
-      # - apt install traceroute
-      # - traceroute demo-caching.s3.ap-southeast-1.amazonaws.com
-      # - npm install --verbose
+      - export APT_SOURCE="/etc/apt/sources.list"
+      - sudo sed -i 's|http://archive.ubuntu.com|https://archive.ubuntu.com|g' $APT_SOURCE
+      - sudo sed -i 's|http://security.ubuntu.com|https://security.ubuntu.com|g' $APT_SOURCE
+      - apt update
+      - echo "Login to CodeArtifact..."
+      - aws codeartifact login --tool npm --repository npm-repo --domain demo-artifact --domain-owner 381492178574 --region ap-southeast-1
+      - npm install --verbose
 cache:
   key: npm-$(codebuild-hash-files package-lock.json)
   paths:
